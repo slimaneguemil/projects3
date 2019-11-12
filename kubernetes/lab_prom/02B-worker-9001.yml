@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-9001
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker-9001
+  template:
+    metadata:
+      labels:
+        app: worker-9001
+    spec:
+      containers:
+        - name: worker-9001
+          image: 775884380616.dkr.ecr.eu-central-1.amazonaws.com/kube:latest
+          ports:
+            - name: web
+              containerPort: 9001
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: worker-9001
+  labels:
+    app: worker-9001
+spec:
+  selector:
+    app: worker-9001
+  ports:
+    - name: web
+      port: 9001
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: worker-9001
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: worker-9001
+  endpoints:
+    - port: web
+      path: actuator/prometheus
+      interval: 5s

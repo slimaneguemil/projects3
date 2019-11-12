@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: service-monitor
+  labels:
+    k8s-app: kube-controller-manager
+    app: example-app
+spec:
+  jobLabel: k8s-app
+  endpoints:
+  - port: http-metrics
+    path: /actuator/prometheus
+    interval: 5s
+  selector:
+    matchLabels:
+      k8s-app: kube-controller-manager
+  namespaceSelector:
+    matchNames:
+    - kube-system

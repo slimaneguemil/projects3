@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: worker-9001-deploy
+  namespace: monitoring
+spec:
+  replicas: 1
+  minReadySeconds: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: worker-9001
+      annotations:
+	test: test
+    spec:
+      containers:
+        - name: worker-9001
+          image: 775884380616.dkr.ecr.eu-central-1.amazonaws.com/kube:latest
+          ports:
+            - containerPort: 9001

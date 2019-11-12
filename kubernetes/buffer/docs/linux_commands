@@ -1,0 +1,13 @@
+systemctl list-unit-files
+sudo systemctl mask nginx.service
+sudo systemctl unmask nginx.service
+sudo systemctl start/start/status nginx.service
+
+# create in /etc/systemd/system
+sudo systemctl edit nginx.service
+
+#remove unit file
+sudo rm -r /etc/systemd/system/nginx.service.d
+To remove a full modified unit file, we would type:
+sudo rm /etc/systemd/system/nginx.service
+sudo systemctl daemon-reload

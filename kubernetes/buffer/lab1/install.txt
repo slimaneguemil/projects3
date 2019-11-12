@@ -1,0 +1,29 @@
+
+kosp delete secret --name imesh.k8s.local sshpublickey admin
+ssh-keygen -y -f guemils_frank.pem >guemils_frank.pub
+kops create secret --name imesh.k8s.local sshpublickey admin -i ~/.ssh/guemils_frank.pub
+kops update cluster --yes
+kops rolling-update cluster --yes
+
+
+kops create cluster  --cloud=aws --zones=eu-central-1a   --name imesh.k8s.local --node-size=t2.medium  --node-count=1 --master-size=t2.small  --ssh-public-key=~/.ssh/guemils_frank.pub --yes
+kops validate cluster
+
+
+ssh -i *pem admin@3.122.253.184
+kubectl -s http://localhost:8080 run hello-world --image=tutum/hello-world --replicas=1 --port=80
+
+kubectl expose rc hello-world --port=8080 --type=NodePort
+
+setup forwarding port from a local machine to the ip of a hello-world-pod
+#grap ip of the pod
+kubectl describe pod <pod_name> | grep IP
+sudo ssh -i *pem -f -nNT -L 80:100.96.1.7:80 admin@18.197.68.66
+
+#expose nginx by port forwarding or a service
+kubectl  run nginx --image=nginx --replicas=1 --port=80
+#fetch ip with
+kubectl get pod -o wide
+kubectl expose replicaset.apps/nginx-6f858d4d45 --port=80
+
+kubectl delete all --all -n monitoring
