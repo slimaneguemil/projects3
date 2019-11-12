@@ -1,0 +1,11 @@
+# ansible-playbook playvars.yml -e "your_lastname=dede"
+#  ansible-playbook playvars.yml -e '{"your_firstname":"dupont","your_lastname":"dede"}'
+#  ansible-playbook playvars.yml -e @your_file.json
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    your_firstname: "toto"
+  tasks:
+    - debug: msg="Hello {{your_firstname}}"
+    - debug: msg="Hello {{your_lastname}}"

@@ -1,0 +1,4 @@
+
+
+ansible_memfree_mb
+ansible_env

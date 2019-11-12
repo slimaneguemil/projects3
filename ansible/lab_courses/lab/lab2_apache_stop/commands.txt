@@ -1,0 +1,3 @@
+stop apache and remove it at boot
+
+ansible-playbook -i inventory webservers.yml

@@ -1,0 +1,30 @@
+#ansible-playbook play1.yml -K
+#sudo mysql
+# mysql -u kate -p
+#mysql> select user,host from mysql.user;
+---
+- hosts: localhost
+  become: true
+  gather_facts: yes
+
+  tasks:
+    - name: Create a lab user todo
+      mysql_user:
+        name: todo
+        password: password
+        state: present
+        priv: "*.*:ALL,GRANT"
+        host: "{{ item }}"
+      with_items:
+        - "{{ ansible_hostname}}"
+        - localhost
+        - 127.0.0.1
+    - name: Create a lab user test
+      mysql_user:
+        name: test
+        password: password
+        state: present
+        priv: "*.*:ALL,GRANT"
+        host: "{{ item }}"
+      with_items:
+        - "%"

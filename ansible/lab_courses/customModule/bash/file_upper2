@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source $1
+
+original=$(cat $file)
+content=$(echo $original | tr '[:lower:]' '[:upper:]')
+
+if [[ "$original" == "$content" ]]; then
+    CHANGED="false"
+else
+    CHANGED="true"
+    echo $content > $file
+fi
+
+cat <<EOF
+{"content":"$CHANGED", "content":"$content"}
+EOF

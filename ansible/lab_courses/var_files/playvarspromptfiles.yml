@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars_prompt:
+    - name: include_file
+      prompt: "Wich file should we include?"
+  vars_files:
+    - ["var_{{include_file}}.yml","var_default.yml"]
+  tasks:
+    - debug: msg="Hello {{your_name }} from {{location}}"

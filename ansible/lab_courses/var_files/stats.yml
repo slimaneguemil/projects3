@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+
+    - name: display filesystem iinfo about /etc/hosts
+      stat: path=/etc/hosts
+      register: hosts_info
+    - debug: var=hosts_info

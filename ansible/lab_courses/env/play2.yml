@@ -1,0 +1,24 @@
+#ansible-playbook play1.yml -K
+
+---
+- hosts: localhost
+ # become: true
+  gather_facts: no
+  tasks:
+    - name: Add an environment variable to the remote user's shell
+      set_fact:
+        probe_host: "{{ lookup('env', 'hostname') | default('N/A',true)}}"
+        play_var1: "{{ lookup('env','SHELL') }}"
+    - name: Message
+      debug:
+        msg: "{{ probe_host }}"
+    - name: Message
+      debug:
+        msg: >
+          the environment is '{{ play_var1 }}'  ....
+          voilà!
+
+
+
+
+

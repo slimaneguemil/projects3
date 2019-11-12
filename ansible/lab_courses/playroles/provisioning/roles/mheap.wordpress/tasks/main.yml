@@ -1,0 +1,47 @@
+---
+# tasks file for mheap.wordpress
+
+## WordPress
+# Copying already downloaded WordPress ------------------------------------#
+#- name: Copy wordpress.zip into tmp
+#  copy: src=files/wordpress.zip dest=/tmp/wordpress.zip
+# Downloading it Automatically --------------------------------------------#
+- name: Get WordPress checksum
+  uri: url=https://wordpress.org/latest.zip.sha1 return_content=true
+  register: wp_checksum
+- name: Download WordPress
+  get_url:
+    url: https://wordpress.org/latest.zip
+    dest: /tmp/wordpress.zip
+    checksum: "sha1:{{wp_checksum.content}}"
+#--------------------------------------------------------------------------#
+- name: installed required tools
+  apt: name={{item}} state=present
+  with_items:
+    - unzip
+- name: Unzip WordPress
+  unarchive: src=/tmp/wordpress.zip dest=/tmp copy=no creates=/tmp/wordpress/wp-settings.php
+- name: Create project folder
+  file: dest=/var/www/book.example.com state=directory
+- name: Copy WordPress files
+  command: cp -a /tmp/wordpress/. /var/www/book.example.com creates=/var/www/book.example.com/wp-settings.php
+- name: Create WordPress MySQL database
+  mysql_db: name={{database_name}} state=present
+- name: Create WordPress MySQL user
+  mysql_user: name={{database_user}} host=localhost password={{database_password}} priv={{database_name}}.*:ALL
+- name: Create wp-config
+  template: src=wp-config.php dest=/var/www/book.example.com/wp-config.php
+- name: Dose the database exist?
+  command: mysql -u root {{database_name}} -e "SELECT ID FROM {{database_name}}.wp_users LIMIT 1;"
+  register: db_exist
+  ignore_errors: true
+  changed_when: false
+- name: display debug
+  debug:
+    msg: "db_exist.rc :{{db_exist.rc}}"
+- name: Copy WordPress DB
+  template: src=wp-database.sql dest=/tmp/wp-database.sql
+  when: db_exist.rc > 0
+- name: Import WordPress DB
+  mysql_db: target=/tmp/wp-database.sql state=import name={{database_name}}
+  when: db_exist.rc > 0

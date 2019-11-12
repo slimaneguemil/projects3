@@ -1,0 +1,5 @@
+---
+#- name: Install apache
+#  apt: name= {{apache2_package_name}} state=installed
+- name: Debug apache2
+  debug: msg= ' {{apache2_package_name}}'

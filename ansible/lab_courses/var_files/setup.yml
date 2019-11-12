@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: no
+  tasks:
+
+    - name: run setup to gather facts
+      register: content_setup
+      setup:
+    - name: display setup
+      debug:
+        msg: "SETUP IS : {{content_setup}}"

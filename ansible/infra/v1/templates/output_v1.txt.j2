@@ -1,0 +1,76 @@
+#date
+  {{ansible_date_time.date}} {{ansible_date_time.hour}}H:{{ansible_date_time.minute}}M
+
+#Hostname:
+  {{ ansible_hostname }}
+
+#host ip :
+{% for address in ansible_all_ipv4_addresses %}
+  {{address}}
+{% endfor %}
+
+#ip route:
+#host files :
+  {% for line in var_hosts.stdout_lines %}
+      {{line}}
+  {% endfor %}
+
+#Selinux status #sestatus
+  {% for line in var_selinux.stdout_lines %}
+      {{line}}
+  {% endfor %}
+
+#Firewall status #systemctl status firewalld
+  {% for line in var_firewall.stdout_lines %}
+      {{line}}
+  {% endfor %}
+
+#iptables status @iptable -L
+#  {% for line in var_iptable.stdout_lines %}
+#      {{line}}
+#  {% endfor %}
+
+#crontab details #crontab -l
+  {% if var_crontab is defined %}
+    {{var_crontab}}
+  {% endif %}
+#configured users #cat /etc/passwd
+  {% for line in var_passwd.stdout_lines %}
+    {{line}}
+  {% endfor %}
+
+#DNS Setup #cat /etc/resolv.conf
+  {% for line in var_resolv.stdout_lines %}
+    {{line}}
+  {% endfor %}
+
+#SSH Setup #cat /etc/sshd_config | grep PermitRootLogin
+  {% for line in var_sshd1.stdout_lines %}
+    {{line}}
+  {% endfor %}
+
+#SSH Setup #cat /etc/sshd_config | grep AllowUsers
+  {% for line in var_sshd2.stdout_lines %}
+    {{line}}
+  {% endfor %}
+
+#Log configurations  #cat /etc/logrotate.conf
+  {% for line in var_logrotate.stdout_lines %}
+    {{line}}
+  {% endfor %}
+
+#                    #cat /etc/logrotate.d/sudolog
+  {% for line in var_logrotate_sudolog.stdout_lines %}
+    {{line}}
+  {% endfor %}
+
+#                    #cat /etc/logrotate.d/syslog
+  {% for line in var_logrotate_syslog.stdout_lines %}
+    {{line}}
+  {% endfor %}
+
+#mysql router config #cat /etc/mysqlrouter/mysqlrouter.conf
+  {% for line in var_mysqlrouter.stdout_lines %}
+    {{line}}
+  {% endfor %}
+

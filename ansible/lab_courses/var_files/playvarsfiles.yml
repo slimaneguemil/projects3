@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  gather_facts: true
+  vars_files:
+    - vars.yml
+    - ["apache_{{ansible_os_family}}.yml", "vars.yml"]
+
+  tasks:
+    - name: display items
+      debug:
+        msg: "item :{{item.name}}"
+      with_items:
+        - name: 'dede'
+          address: 'rue1'
+        - name: 'dede2'
+          address: 'rue2'
+    - name: ansible_os
+      debug:
+        msg: "vars: {{foo}}"
+    - name: display items2
+      debug:
+        msg: "ansible_os_family: {{ansible_os_family}}"

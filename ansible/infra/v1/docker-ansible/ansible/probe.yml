@@ -1,0 +1,16 @@
+---
+- name: Probe Host
+  hosts: centos
+#  hosts: localhost
+#  connection: local
+  tasks:
+  - ping:
+  - name: register /etc/hosts
+    command : cat /etc/hosts
+    register: var_hosts
+  - name: Output var_hosts
+    debug: msg="host {{var_hosts.stdout_lines}}"
+  - name: Output ansible_hostname
+    debug: 
+      msg: >
+        ansible_hostname: {{ ansible_hostname }}

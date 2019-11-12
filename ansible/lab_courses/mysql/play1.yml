@@ -1,0 +1,31 @@
+#ansible-playbook play1.yml -K
+
+---
+- hosts: localhost
+  become: true
+  gather_facts: no
+  tasks:
+    - name: install mysql
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - mysql-server
+        - python-mysqldb
+
+    - name: start mysql
+      service:
+        name: mysql
+        state: started
+        #enable: true
+
+    - name: Create a user
+      mysql_user:
+        name: kate
+        password: test
+        state: present
+        priv: "*.*:ALL,GRANT"
+        hosts:
+          - "127.0.0.1"
+          - "localhost"
+          -

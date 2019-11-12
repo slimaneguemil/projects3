@@ -1,0 +1,7 @@
+# ansible localhost -m command -a env | grep -i VAR
+---
+- hosts: localhost
+  tasks:
+    - name: disply andible varibale
+      debug:
+        msg: "env: {{ansible_env}}"

@@ -1,0 +1,18 @@
+#ansible-playbook play1.yml -K
+
+---
+- hosts: localhost
+  become: true
+  gather_facts: no
+  tasks:
+    - name: upload git
+      git:
+        repo: https://github.com/drush-ops/drush.git
+        dest: repo
+    - name: delete file
+      file:
+        path: 'repo'
+        state: absent
+
+
+

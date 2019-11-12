@@ -1,0 +1,12 @@
+---
+- name : check if var exist
+  fail:
+    msg: 'var do not exits'
+  when: backup_folder is not defined
+- name : test
+  shell: systemctl list-units --type=service | grep apache2
+  register: remote_processes_number
+- name : print echo
+  debug:
+    msg: '{{remote_processes_number.stdout}}'
+  when: backup

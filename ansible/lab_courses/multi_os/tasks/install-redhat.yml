@@ -1,0 +1,3 @@
+---
+- name: Install apache
+  yum: name= {{apache2_package_name}} state=installed

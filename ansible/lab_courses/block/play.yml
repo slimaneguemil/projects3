@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - block:
+      - debug: msg="Hello {{your_name}}"
+      - debug: msg="How are you {{your_name}}"
+      vars:
+        your_name: Mickael

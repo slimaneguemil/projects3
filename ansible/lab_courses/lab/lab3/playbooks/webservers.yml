@@ -1,0 +1,8 @@
+---
+- hosts: webservers
+  gather_facts: no
+  vars:
+    backup_folder: toto
+    backup: True
+  roles:
+    - webserver

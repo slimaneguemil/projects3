@@ -1,0 +1,5 @@
+#ping local machine
+ansible localhost -m ping -c local
+#print all the tasks in a shorter form
+ansible-playbook playbook.yml
+--list-hosts --list-tasks  --syntax-check --check

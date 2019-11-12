@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: get variable
+      debug:
+        var: inventory_hostname
+    - name: "generatehtml"
+      connection: local
+      template:
+        src: test.html.j2
+        dest: ~/IdeaProjects/projects/ansible/lab_courses/lab10/{{inventory_hostname}}.html
+        #dest: ~/test.html
+

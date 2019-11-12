@@ -1,0 +1,16 @@
+---
+- name: process on localhost
+  block:
+    - name: host files
+      command: ls /var
+      register: var_ls
+      changed_when: false
+    - name: ansible_hostname
+      debug:
+        msg: "{{ var_ls }}"
+  delegate_to: localhost
+
+
+
+
+

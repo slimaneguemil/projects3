@@ -1,0 +1,19 @@
+---
+- name: Categorize hosts
+  hosts: localhost
+  tasks:
+    - name: Gather hosts by OS
+      group_by:
+        key: "os_{{ ansible_os_family}}"
+
+- name: install on redhat
+  hosts: os_RedHat
+  tasks:
+  - debug:
+      msg: "coucou red hat"
+
+- name: install on redhat
+  hosts: os_Debian
+  tasks:
+    - debug:
+        msg: "coucou debiant"

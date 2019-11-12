@@ -1,0 +1,19 @@
+---
+- name: create a user
+  user:
+    name: toto
+    password: "{{ 'password' | password_hash('sha512') }}"
+    state: present
+    comment: from ansible
+    home: /home/titi
+    update_password: always
+
+- name: Force Xandria to change password
+  command: "chage -d 0 toto"
+
+
+- name: display users
+  command: "cut -d_ -f1 /etc/passwd"
+  register: hello
+
+- debug: msg="{{ hello.stdout }}"

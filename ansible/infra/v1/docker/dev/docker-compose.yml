@@ -1,0 +1,23 @@
+control:
+  image: infra/control
+  #volumes_from:
+  #  - centos
+  links:
+    - centos
+  environment:
+    PROBE_HOST: "db"
+    PROBE_PORT: "3306"
+  command: ["-i centos,","probe.yml"]
+
+centos:
+  image: centos
+ # entrypoint: "true"
+  command: ["sleep 3600"]
+
+centosA:
+  image: centos
+  volumes:
+    #- /tmp/cache:/cache
+    - ~/cache:/cache
+    - ~/build:/build
+  entrypoint: "true"

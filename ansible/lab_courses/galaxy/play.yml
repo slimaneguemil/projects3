@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  become: yes
+#  roles:
+#    - { role: GROG.user, become: yes }
+  vars:
+    user_list_group:
+      - name: user
+        uid: 1100
+      - name: toto
+        state: absent
+      - name: titi
+        state: absent
+      - name: tutu
+        state: absent
+  roles:
+    - grog.user

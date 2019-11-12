@@ -1,0 +1,7 @@
+---
+- hosts: webservers:dbservers
+  become: true
+  gather_facts: no
+
+- include: webservers.yml
+- include: dbservers.yml

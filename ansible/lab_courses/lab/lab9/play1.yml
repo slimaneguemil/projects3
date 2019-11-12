@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  vars:
+    var_slimane: toto
+  tasks:
+    - name: display setp variable
+      debug:
+        var: ansible_python
+    - name: Set variable 'var_toto'
+      set_fact:
+        var_toto: Test machine
+    - name: Print variable 'name'
+      debug:
+        msg: '{{ var_toto }}'

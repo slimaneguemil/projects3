@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $1
+
+cat <<EOF
+{"content":"$foo"}
+EOF

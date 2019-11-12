@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  become: yes
+  vars:
+    var_slimane: toto
+  tasks:
+  - name: do a thing
+    uri:
+      url: https://derpops.bike
+    register: derpops
+
+  - name: show derpops
+    debug:
+      #msg: "derops value is {{ derpops}}"
+      var: derpops.server
+
+  - name: show a comlex hash
+    debug:
+      #msg: "derops value is {{ derpops}}"
+      var: ansible_default_ipv4.address
+
+  - name: show username
+    debug:
+      msg: "username {{ansible_managed}}"
+
+
+  - name: create a user
+    user:
+      name: toto
+      comment: from ansible

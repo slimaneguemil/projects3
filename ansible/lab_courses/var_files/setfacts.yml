@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+
+    - set_fact: example_var="Helloworld"
+    - debug: var=example_var
+

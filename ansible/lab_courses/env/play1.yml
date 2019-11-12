@@ -1,0 +1,32 @@
+#ansible-playbook play1.yml -K
+
+---
+- hosts: localhost
+ # become: true
+  gather_facts: no
+  tasks:
+#    - name: Add an environment variable to the remote user's shell
+#      lineinfile:
+#        state: present
+#        path: ~/.bashrc
+#        regexp: '^ENV_VAR='
+#        line: 'ENV_VAR=value'
+    - name: Add an GLOBAL environment variable to the remote user's shell
+      become: true
+      lineinfile:
+        state: present
+        path: /etc/environment
+        regexp: '^ENV_VAR='
+        line: 'ENV_VAR=123456'
+    - name: Get the value previous environment variable added
+      shell: 'source /etc/environment && echo $ENV_VAR'
+      register: foo
+      args:
+        executable: /bin/bash
+    - name: Print value of environemtn variable.
+      debug:
+        msg: "the variable is {{foo.stdout}}"
+
+
+
+

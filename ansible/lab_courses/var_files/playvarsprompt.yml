@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars_prompt:
+    - name: your_name
+      prompt: "Enter your name"
+  tasks:
+    - debug: msg="Hello my friend {{your_name}}"

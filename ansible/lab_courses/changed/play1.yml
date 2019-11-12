@@ -1,0 +1,17 @@
+#ansible-playbook play1.yml
+
+---
+- hosts: localhost
+ # become: true
+  gather_facts: no
+  tasks:
+    - name: Print value of environemtn variable.
+      command: ls
+      register: demo
+      changed_when: '"play1" in demo.stdout'
+    - name: display
+      debug:
+        msg: '{{demo.stdout}}'
+
+
+

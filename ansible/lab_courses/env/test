@@ -1,0 +1,3 @@
+dede
+ENV_VAR value
+ENV_VAR=value

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    var_slimane: toto
+  tasks:
+
+  - name: wait user action
+    pause:
+      prompt: "press ENTER or CRL-C"
+
+  - name: timed wait
+    pause:
+      seconds: 30

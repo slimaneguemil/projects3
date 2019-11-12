@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+  tasks:
+    - debug: msg="ansible var {{ansible_env}}"

@@ -1,0 +1,14 @@
+---
+# tasks file for folder
+- name: Create an output directory
+  file:
+    path: "{{path_output}}/{{ansible_date_time.year}}/{{ansible_date_time.month}}/{{ansible_date_time.day}}"
+    state: directory
+- name: generate an output file for each target
+  template:
+    src: templates/output.txt.j2
+    #  dest: "{{path_output}}/{{ansible_hostname}}_{{ansible_date_time.date}}_{{ansible_date_time.hour}}-{{ansible_date_time.minute}}-{{ansible_date_time.second}}.txt"
+    dest: "{{path_output}}/{{ansible_date_time.year}}/{{ansible_date_time.month}}/{{ansible_date_time.day}}/{{ansible_hostname}}_{{ansible_date_time.date}}_{{ansible_date_time.hour}}-{{ansible_date_time.minute}}-{{ansible_date_time.second}}.txt"
+    owner: root
+    group: root
+    mode: 0644

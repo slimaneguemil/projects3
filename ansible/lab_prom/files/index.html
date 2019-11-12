@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#31363b">
+    <meta name="author" content="Pawel Krupa">
+    <link rel="icon" href="https://avatars3.githubusercontent.com/u/30964538?s=200&v=4">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Cloud Alchemy</title>
+  </head>
+
+  <body class="py-5 bg-dark">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 text-white text-center">
+          <img height="100px" src="img/logo.png"/>
+          <h1>Cloud Alchemy</h1>
+          <p class="font-italic">Transmuting servers to cloud</p><br>
+        </div>
+        <div class="col-sm-12 text-white text-center">
+            We are proudly presenting our daily-provisioned demo site for monitoring solution based on prometheus and grafana.<br> Everything here is managed by Ansible with roles provided by us and everything is open-source and ready to use.<br>
+        </div>
+      </div>    
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-header">
+              <a href="https://github.com/grafana/grafana" class="text-white">Grafana <i class="fab fa-github"></i></a>
+            </div>
+            <!--<img class="card-img-top px-5" src="https://demo.lightbend.com/grafana/public/img/grafana_icon.svg" alt="Grafana logo">-->
+            <div class="card-body">
+              <a href="https://galaxy.ansible.com/cloudalchemy/grafana"><img src="https://img.shields.io/badge/ansible%20role-cloudalchemy.grafana-blue.svg" alt="Grafana ansible role"/></a><br>
+              <img src="https://img.shields.io/uptimerobot/ratio/7/m779739003-21ce43d565a95d31564b438d.svg" alt="Grafana uptime"/>
+            </div>
+            <div class="card-footer">
+              <a href="https://grafana.demo.cloudalchemy.org" class="btn btn-dark">Open demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-header">
+              <a href="https://github.com/prometheus/prometheus" class="text-white">Prometheus <i class="fab fa-github"></i></a>
+            </div>
+            <div class="card-body">
+              <a href="https://galaxy.ansible.com/cloudalchemy/prometheus"><img src="https://img.shields.io/badge/ansible%20role-cloudalchemy.prometheus-blue.svg" alt="Prometheus ansible role"/></a><br>
+              <img src="https://img.shields.io/uptimerobot/ratio/7/m779739002-6049a4d9177bdf92d7dce7d9.svg" alt="Prometheus uptime"/>
+            </div>
+            <div class="card-footer">
+              <a href="https://prometheus.demo.cloudalchemy.org" class="btn btn-dark">Open demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-header">
+              <a href="https://github.com/prometheus/alertmanager" class="text-white">Alertmanager <i class="fab fa-github"></i></a>
+            </div>
+            <div class="card-body">
+              <a href="https://galaxy.ansible.com/cloudalchemy/alertmanager"><img src="https://img.shields.io/badge/ansible%20role-cloudalchemy.alertmanager-blue.svg" alt="Alertmanager ansible role"/></a><br>
+              <img src="https://img.shields.io/uptimerobot/ratio/7/m779739005-687f76da143b768d378502f8.svg" alt="Alertmanager uptime"/>
+            </div>
+            <div class="card-footer">
+              <a href="https://alertmanager.demo.cloudalchemy.org" class="btn btn-dark">Open demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-header">
+              <a href="https://github.com/prometheus/node_exporter" class="text-white">Node exporter <i class="fab fa-github"></i></a>
+            </div>
+            <div class="card-body">
+              <a href="https://galaxy.ansible.com/cloudalchemy/node-exporter"><img src="https://img.shields.io/badge/ansible%20role-cloudalchemy.node_exporter-blue.svg" alt="node exporter ansible role"/></a><br>
+              <img src="https://img.shields.io/uptimerobot/ratio/7/m779739001-48f8ed6c3aa6f23da1ec11e2.svg" alt="Node exporter uptime"/>
+            </div>
+            <div class="card-footer">
+              <a href="https://node.demo.cloudalchemy.org" class="btn btn-dark">Open demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-header">
+              <a href="https://github.com/prometheus/snmp_exporter" class="text-white">SNMP Exporter <i class="fab fa-github"></i></a>
+            </div>
+            <div class="card-body">
+              <a href="https://galaxy.ansible.com/cloudalchemy/snmp-exporter"><img src="https://img.shields.io/badge/ansible%20role-cloudalchemy.snmp_exporter-blue.svg" alt="SNMP exporter ansible role"/></a><br>
+              <img src="https://img.shields.io/uptimerobot/ratio/7/m779739006-f784bd36e07d328bfacb6d17.svg" alt="SNMP exporter uptime"/>
+            </div>
+            <div class="card-footer">
+              <a href="https://snmp.demo.cloudalchemy.org" class="btn btn-dark">Open demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-header">
+              <a href="https://github.com/prometheus/blackbox_exporter" class="text-white">Blackbox Exporter <i class="fab fa-github"></i></a>
+            </div>
+            <div class="card-body">
+              <a href="https://galaxy.ansible.com/cloudalchemy/blackbox-exporter"><img src="https://img.shields.io/badge/ansible%20role-cloudalchemy.blackbox_exporter-blue.svg" alt="blackbox exporter ansible role"/></a><br>
+              <img src="https://img.shields.io/uptimerobot/ratio/7/m779739004-8447f4012a129e08df4db247.svg" alt="Blackbox exporter uptime"/>
+            </div>
+            <div class="card-footer">
+              <a href="https://blackbox.demo.cloudalchemy.org" class="btn btn-dark">Open demo</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-white text-center">
+            To get more information on how we do it visit our sites
+        </div>
+      </div>    
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-body">
+              <a href="https://github.com/cloudalchemy/demo-site"><i class="fab fa-github fa-7x text-white"></i></a><br>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/cloudalchemy/demo-site" class="btn btn-dark">Code repository</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-body">
+              <a href="https://demo.cloudalchemy.org/ara"><img src="https://demo.cloudalchemy.org/ara/static/images/logo-header.svg" style="max-height:7em" alt="ara logo"/></a><br>
+            </div>
+            <div class="card-footer">
+              <a href="https://demo.cloudalchemy.org/ara" class="btn btn-dark">ARA Records Ansible</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 my-4">
+          <div class="card text-center text-white bg-secondary">
+            <div class="card-body">
+              <a href="https://presentation.cloudalchemy.org"><i class="fa fa-object-group fa-7x text-white"></i></a><br>
+            </div>
+            <div class="card-footer">
+              <a href="https://presentation.cloudalchemy.org" class="btn btn-dark">Our presentation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="py-5">
+      <div class="container">
+        <p class="text-center text-white">Created by <a href="https://github.com/orgs/cloudalchemy/people">Cloud Alchemy Team</a></p>
+        <p class="m-0 text-center">
+          <a href="https://digitalocean.com">
+            <!--<img height="50px" src="https://www.hostlittle.com/img/digital_ocean.png" alt="Powered by DigitalOcean"/>-->
+	    <img height="50px" src="img/digitalocean.png" alt="Powered by DigitalOcean"/>
+          </a>
+        </p>
+      </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113940711-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-113940711-1');
+    </script>
+  </body>
+</html>

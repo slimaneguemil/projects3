@@ -1,0 +1,22 @@
+step1: edit security in vault
+
+go to group_vars/all:
+export EDITOR=nano
+ansible-vault create vault
+
+copy this in editor :
+vault_grafana_password: password
+vault_influxdb_password: password
+
+step 2: playbook
+ansible-playbook --vault-id @prompt site.yml
+
+
+
+
+ansible-playbook --vault-id @prompt extras.yml
+
+
+#CADDY
+if playbook crash before starting service , launch it manuulay with
+sudo  /usr/local/bin/caddy -log stdout -agree=true -email=email@email.com -conf=/etc/caddy/Caddyfile -root=/var/tmp

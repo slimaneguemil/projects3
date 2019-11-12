@@ -1,0 +1,8 @@
+---
+- name: ensure apache is installed
+  apt: name=apache2 state=present
+
+- name: stop Apache | remove it at boot
+  service: name=apache2 state=stopped enabled=no
+
+#-name: deploy config

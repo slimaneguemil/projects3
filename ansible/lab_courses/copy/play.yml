@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    your_name: "toto"
+  tasks:
+    - copy: content="Exmple File" dest="hello.html"
+      become: true
+#      when: do_something.rc == 0

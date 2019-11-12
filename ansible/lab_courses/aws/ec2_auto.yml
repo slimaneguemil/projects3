@@ -1,0 +1,18 @@
+#exact_count = 0 -> termiante all instance
+---
+- name: Create AWS resources
+  hosts: all
+  connection: local
+  gather_facts: False
+  tasks:
+          - ec2:
+                  image: ami-0ac05733838eabc06
+                  region: eu-central-1
+                  instance_type: t2.micro
+                  instance_tags:
+                    Name: Demo
+                  count_tag:
+                    Name: Demo
+                  exact_count: 1
+                  group: mks
+                  key_name: guemils_frank

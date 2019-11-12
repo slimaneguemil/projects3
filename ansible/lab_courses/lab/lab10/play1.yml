@@ -1,0 +1,20 @@
+#ansible-playbook -i inventory play1.yml -e "name=toto"
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: get variable
+      debug:
+        var: ansible_hostname
+
+    - name: get variable
+      debug:
+        msg: "{{ ansible_distribution }}- {{ ansible_distribution_version }}"
+
+    - name: get command variable
+      debug:
+        msg: "{{ name }}"
+
+    - name: get env by command
+      command:
+        name: "env"

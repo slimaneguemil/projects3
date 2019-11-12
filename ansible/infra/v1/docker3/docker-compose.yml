@@ -1,0 +1,51 @@
+version: '3.3'
+
+networks:
+  monitor-net:
+
+services:
+
+  control:
+    image: infra/control
+ #   restart: unless-stopped
+    depends_on:
+      - centos
+      - db
+    environment:
+      PROBE_HOST: "db"
+      PROBE_PORT: "3306"
+    #entrypoint:  sleep 3600
+    command:
+     # - "-i centos, "
+      - "probe.yml"
+   #   - "sleep 3600"
+    networks:
+      - monitor-net
+
+  centos:
+    image: centos7-ansible
+    entrypoint:  sleep 3600
+    expose:
+      - "22"
+ #   restart: unless-stopped
+  #  command: "bash"
+    networks:
+      - monitor-net
+
+  centos2:
+    image: infra/control
+    entrypoint:  sleep 3600
+    #   restart: unless-stopped
+    #  command: "bash"
+    networks:
+      - monitor-net
+
+
+  db:
+    image: mysql:5.6
+    hostname: db
+    expose:
+      - "3306"
+      - "22"
+    environment:
+      MYSQL_ROOT_PASSWORD: password

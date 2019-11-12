@@ -1,0 +1,14 @@
+
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    output: /var/www/html/files/
+    output_url: /files
+  roles:
+    - apache_ubuntu
+
+
+
+

@@ -1,0 +1,18 @@
+web1 ansible_host=35.159.19.126
+db1 ansible_host=3.120.224.151
+
+
+[webservers]
+web1
+
+[dbservers]
+db1
+
+[datacenter:children]
+webservers
+dbservers
+
+
+[datacenter:vars]
+ansible_user=ubuntu 
+ansible_ssh_private_key_file=private_key.pem

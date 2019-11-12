@@ -1,0 +1,11 @@
+---
+#- name: ensure mysql is installed
+#    apt:
+#      pkg:
+#        - mysql-server-5.7
+#        - mysql-client-5.7
+#        - python-mysqldb
+#        - libmysqlclient-dev
+#      state: present
+- name: ensure apache is installed
+  apt: name=mysql-server-5.7 state=present
