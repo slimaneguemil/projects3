@@ -1,6 +1,0 @@
-kops create cluster  --cloud=aws --zones=eu-central-1a   --name imesh.k8s.local --authentication-token-webhook=true --node-size=t2.medium  --node-count=1 --master-size=t2.small  --ssh-public-key=~/.ssh/guemils_frank.pub  --yes
-kubectl get servicemonior kube-prometheus-eporter-kubelets --namespace monitoring --output
-kops create cluster  --cloud=aws --zones=eu-central-1a   --name imesh.k8s.local --node-size=t2.medium  --node-count=1 --master-size=t2.small  --ssh-public-key=~/.ssh/guemils_frank.pub  --yes
-
-
-kops update cluster    --name cluster.nosiris.com   --yes
