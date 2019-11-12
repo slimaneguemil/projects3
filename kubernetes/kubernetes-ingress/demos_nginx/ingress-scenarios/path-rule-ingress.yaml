@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: path-rule-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+   - host: blue.kops.nosiris.com
+     http:
+       paths:
+         - path: /blue
+           backend:
+             serviceName: nginxhello-blue
+             servicePort: 80
+
+
